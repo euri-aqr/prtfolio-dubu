@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김유리 — Portfolio | Dubu PM Application</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF7F2;
+  --paper: #FFFFFF;
+  --ink: #1F1B16;
+  --ink-mid: #4A433B;
+  --ink-light: #8A8276;
+  --accent: #C2521B;
+  --accent-soft: #FBEDE3;
+  --accent-deep: #8E3711;
+  --leaf: #4F7A4A;
+  --leaf-soft: #E8F0E7;
+  --rule: #DDD7CC;
+  --tag-bg: #F0EBE0;
+  --highlight: #FFEFC9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.82;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 58px 80px;
+  background: var(--paper);
+  min-height: 100vh;
+  box-shadow: 0 0 0 1px var(--rule);
+}
+.hero {
+  padding-bottom: 34px;
+  border-bottom: 2.5px solid var(--ink);
+  margin-bottom: 34px;
+}
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  color: var(--accent-deep);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+h1 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 40px;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+}
+h1 em {
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 62%, var(--accent-soft) 62%);
+  padding: 0 5px;
+}
+.hero-sub {
+  max-width: 760px;
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.9;
+}
+.byline {
+  margin-top: 22px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-light);
+  letter-spacing: 0.09em;
+}
+section { margin-bottom: 52px; }
+.s-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+  border-bottom: 1.5px solid var(--ink);
+}
+.s-title span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ink-light);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.lead {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--ink-mid);
+  max-width: 780px;
+}
+.lead strong, p strong, li strong, td strong {
+  color: var(--ink);
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 62%, var(--highlight) 62%);
+  padding: 0 2px;
+}
+.fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.fit-card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 5px;
+  padding: 16px 18px;
+}
+.fit-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  color: var(--accent-deep);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.fit-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+.fit-body {
+  color: var(--ink-mid);
+  font-size: 12.5px;
+  line-height: 1.72;
+}
+.case {
+  padding-top: 8px;
+  margin-bottom: 68px;
+}
+.case-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: baseline;
+  padding-bottom: 13px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 14px;
+}
+.case-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  padding: 4px 9px;
+  border-radius: 3px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+.case-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.34;
+  letter-spacing: -0.025em;
+}
+.case-tagline {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.85;
+  background: var(--bg);
+  border-left: 3px solid var(--leaf);
+  padding: 14px 17px;
+  margin: 14px 0 24px;
+}
+.meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+.meta div { padding: 13px 14px; border-right: 1px solid var(--rule); }
+.meta div:last-child { border-right: none; }
+.meta small {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--ink-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.meta b {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.block { margin-bottom: 26px; }
+.block-h {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.block-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.block-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+p { color: var(--ink-mid); margin-bottom: 12px; }
+ul { list-style: none; margin: 10px 0 0; padding: 0; }
+li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  color: var(--ink-mid);
+  font-size: 13px;
+  line-height: 1.78;
+}
+li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+th {
+  text-align: left;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  padding: 8px 10px;
+  border: 1px solid #F2D6BD;
+}
+td {
+  color: var(--ink-mid);
+  padding: 9px 10px;
+  border: 1px solid var(--rule);
+  vertical-align: top;
+}
+.match {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, #FBF4EC 100%);
+  border: 1px solid #F2D6BD;
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-top: 24px;
+}
+.match-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-deep);
+  margin-bottom: 8px;
+}
+.match p { font-size: 12.8px; margin-bottom: 0; }
+.lesson {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 17px 20px;
+  margin-top: 22px;
+  background: var(--bg);
+}
+.lesson .label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--accent-deep);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.lesson p { font-style: italic; font-size: 13px; margin-bottom: 0; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.small-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent);
+  padding: 15px 15px 14px;
+  border-radius: 4px;
+}
+.small-card h4 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+.small-card p { font-size: 12px; line-height: 1.72; margin-bottom: 0; }
+.plan {
+  background: #1F1B16;
+  color: #F0EBE0;
+  border-radius: 8px;
+  padding: 34px 32px;
+}
+.plan h2 {
+  color: white;
+  font-family: 'Gowun Batang', serif;
+  font-size: 24px;
+  line-height: 1.45;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.plan-intro {
+  color: #C7BFB0;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 28px;
+  font-size: 13px;
+  line-height: 1.85;
+}
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.phase {
+  border: 1px solid rgba(255,255,255,.13);
+  background: rgba(255,255,255,.045);
+  border-radius: 6px;
+  padding: 19px 18px;
+}
+.phase small {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #E8956A;
+  letter-spacing: .12em;
+}
+.phase h3 {
+  color: white;
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+  margin: 6px 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+.phase li { color: #D4CCBE; font-size: 12px; padding-left: 15px; }
+.phase li::before { content: '·'; color: #E8956A; left: 3px; }
+.questions {
+  margin-top: 22px;
+  background: rgba(255,255,255,.06);
+  border-left: 3px solid #E8956A;
+  border-radius: 4px;
+  padding: 18px 20px;
+}
+.questions .label { font-family: 'DM Mono', monospace; color: #E8956A; font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 7px; }
+.questions p { color: #E0D8C8; font-size: 13px; margin: 0; }
+.appendix {
+  background: var(--leaf-soft);
+  border-left: 4px solid var(--leaf);
+  border-radius: 8px;
+  padding: 26px 28px;
+}
+.appendix-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--leaf);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.appendix h3 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.appendix-lead {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--ink-mid);
+  margin-bottom: 18px;
+}
+.esg-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 18px 0 20px;
+}
+.esg-stat {
+  background: white;
+  border: 1px solid #C5D8C2;
+  border-radius: 6px;
+  padding: 14px 12px;
+  text-align: center;
+}
+.esg-stat-num {
+  font-family: 'Gowun Batang', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--leaf);
+  margin-bottom: 5px;
+}
+.esg-stat-num small {
+  font-size: 13px;
+  font-weight: 700;
+}
+.esg-stat-label {
+  font-size: 11px;
+  color: var(--ink-mid);
+  line-height: 1.45;
+}
+.esg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+.esg-cell {
+  background: white;
+  border: 1px solid #C5D8C2;
+  border-radius: 5px;
+  padding: 15px 17px;
+}
+.esg-cell h4 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 14.5px;
+  margin-bottom: 7px;
+  color: var(--ink);
+}
+.esg-cell p {
+  font-size: 12.5px;
+  line-height: 1.78;
+  margin-bottom: 0;
+}
+.esg-bridge {
+  background: white;
+  border-top: 3px solid var(--leaf);
+  border-radius: 5px;
+  padding: 17px 20px;
+  margin-top: 16px;
+}
+.esg-bridge .label {
+  font-family: 'DM Mono', monospace;
+  color: var(--leaf);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.esg-bridge p {
+  font-size: 13px;
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+.appendix.ethics {
+  background: var(--accent-soft);
+  border-left-color: var(--accent);
+}
+.appendix.ethics .appendix-kicker {
+  color: var(--accent-deep);
+}
+.appendix.ethics .esg-stat {
+  border-color: #F2D6BD;
+}
+.appendix.ethics .esg-stat-num {
+  color: var(--accent-deep);
+}
+.appendix.ethics .esg-cell {
+  border-color: #F2D6BD;
+}
+.appendix.ethics .esg-bridge {
+  border-top-color: var(--accent);
+}
+.appendix.ethics .esg-bridge .label {
+  color: var(--accent-deep);
+}
+.appendix.ethics .esg-stats {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.closing {
+  padding: 30px 28px;
+  background: linear-gradient(135deg, var(--accent-soft) 0%, #FBF4EC 100%);
+  border: 1px solid #F2D6BD;
+  border-radius: 8px;
+  text-align: center;
+}
+.closing h2 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.closing p { max-width: 700px; margin: 0 auto; }
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  color: var(--ink-light);
+  letter-spacing: .12em;
+}
+.note {
+  font-size: 11.5px;
+  color: var(--ink-light);
+  line-height: 1.65;
+  margin-top: 10px;
+}
+@media print {
+  body { background: white; }
+  .page { box-shadow: none; padding: 34px; }
+  section { break-inside: avoid; }
+}
+@media (max-width: 720px) {
+  .page { padding: 34px 22px; }
+  h1 { font-size: 30px; }
+  .fit-grid, .card-grid, .plan-grid, .esg-stats, .esg-grid { grid-template-columns: 1fr; }
+  .meta { grid-template-columns: 1fr 1fr; }
+  .meta div:nth-child(2) { border-right: none; }
+  .case-head { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="eyebrow">Portfolio · Dubu PM Application</div>
+  <h1>아동·보호자·교육자 리서치와<br><em>LLM 대화 제품 경험</em>을 잇는 PM</h1>
+  <p class="hero-sub">
+    두부핑퐁의 PMF 검증에 직접 연결되는 세 가지 경험을 정리했습니다.
+    첫째, 푸르넷 공부방 사용자인 초등학생·보호자·지도 교사를 매달 인터뷰하며 교육 콘텐츠의 실제 사용 맥락을 이해한 경험.
+    둘째, LLM 기반 AI 어시스턴트의 초기 제품 방향과 대화 경험을 설계·운영한 경험.
+    셋째, 데이터 비전문가와 전문가 사이의 언어 차이를 제품 구조로 풀어낸 플랫폼 PM 경험입니다.
+    여기에 AI 윤리 위원회 참여와 녹서 발간 경험을 더해, 아동 대상 AI 제품에 필요한 책임감 있는 제품 운영 관점도 함께 정리했습니다.
+  </p>
+  <div class="byline">KIM EURI · Product Manager Portfolio · 2026</div>
+</header>
+
+<section>
+  <h2 class="s-title">How to Read <span>JD fit summary</span></h2>
+  <p class="lead">
+    이 포트폴리오는 경력 전체를 나열하기보다, 두부 JD의 세 가지 핵심 업무인
+    <strong>고객 발견·가설 검증</strong>, <strong>AI 대화 경험 설계</strong>, <strong>다양한 이해관계자와의 협업 리딩</strong>에 맞춰 재구성했습니다.
+    특히 두부핑퐁이 만 5세 이상 아동의 AI 또래 대화 경험을 만들고, PMF를 검증하며 대규모 고객을 준비하는 단계라는 점을 기준으로 사례를 선별했습니다.
+  </p>
+  <div class="fit-grid" style="margin-top:18px;">
+    <div class="fit-card">
+      <div class="fit-kicker">JD 01</div>
+      <div class="fit-title">고객 발견 · 가설 검증</div>
+      <div class="fit-body">푸르넷 공부방의 초등학생·보호자·지도 교사를 매달 인터뷰하며, 아이의 직접 발화와 어른의 관찰을 함께 해석했습니다.</div>
+    </div>
+    <div class="fit-card">
+      <div class="fit-kicker">JD 02</div>
+      <div class="fit-title">AI 대화 경험 설계</div>
+      <div class="fit-body">AI 어시스턴트의 대화 범위, 톤앤매너, 지식 소스, 실패 응답 패턴을 제품 관점에서 정리했습니다.</div>
+    </div>
+    <div class="fit-card">
+      <div class="fit-kicker">JD 03</div>
+      <div class="fit-title">제품 사용 데이터 · 대화 로그</div>
+      <div class="fit-body">대화 로그와 사용자 피드백을 읽고, 반복 질문·불확실 응답·후속 행동 부재를 개선 가설로 전환했습니다.</div>
+    </div>
+    <div class="fit-card">
+      <div class="fit-kicker">JD 04</div>
+      <div class="fit-title">협업 리딩</div>
+      <div class="fit-body">데이터 비전문가, 분석가, 엔지니어, 디자이너 사이의 언어 차이를 제품 요구사항과 운영 원칙으로 번역했습니다.</div>
+    </div>
+    <div class="fit-card">
+      <div class="fit-kicker">Responsible AI</div>
+      <div class="fit-title">AI 윤리 · 거버넌스</div>
+      <div class="fit-body">매월 AI 윤리 위원회에 참여하고, 위원 인터뷰와 녹서 발간에 참여하며 AI 제품의 안전·책임 기준을 문서와 토론 구조로 다뤘습니다.</div>
+    </div>
+  </div>
+</section>
+
+<section class="case" id="case01">
+  <div class="case-head">
+    <span class="case-num">CASE 01</span>
+    <h2 class="case-title">푸르넷 공부방 — 아동·보호자·교육자를 함께 본 리서치 경험</h2>
+  </div>
+  <p class="case-tagline">
+    어린이 잡지, 사외보, 신문을 제작하며, 푸르넷 공부방이라는 교육 서비스가 아이·보호자·지도 교사에게 어떻게 경험되는지 매달 듣고 구조화했습니다.
+  </p>
+  <div class="meta">
+    <div><small>Role</small><b>기자 · 편집자</b></div>
+    <div><small>Period</small><b>3년 7개월</b></div>
+    <div><small>Users</small><b>초등학생 · 보호자 · 지도 교사</b></div>
+    <div><small>Cycle</small><b>월간 인터뷰 · 정기 발행</b></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Context</span><span class="block-title">본사 교육자료는 현장에서 다르게 경험되었습니다</span></div>
+    <p>
+      금성출판사에서는 푸르넷 공부방을 이용하는 초등학생, 보호자, 지도 교사를 매달 인터뷰했습니다.
+      본사에서 제공하는 교육자료가 실제 가정과 공부방에서 어떻게 활용되는지, 아이가 무엇을 재미있거나 어렵게 느끼는지,
+      보호자와 교육자는 어떤 기준으로 학습 효과와 활용성을 판단하는지 듣고 정리했습니다.
+    </p>
+    <p>
+      이 경험을 두부 지원 맥락에서 다시 정의하면, <strong>아동·양육자·교육자 3자 관점의 정성 리서치를 반복 수행하고, 현장의 사용 맥락을 콘텐츠 구조로 전환한 경험</strong>입니다.
+    </p>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Method</span><span class="block-title">한 아이의 경험을 세 관점으로 교차해서 들었습니다</span></div>
+    <table>
+      <thead>
+        <tr><th>인터뷰 대상</th><th>주로 확인한 것</th><th>제품 관점의 의미</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>초등학생</strong></td>
+          <td>어떤 자료를 재미있어하는지, 어디서 지루해하거나 어려워하는지, 어떤 표현으로 자신의 경험을 설명하는지</td>
+          <td>아동의 실제 반응과 발화 수준을 이해하는 훈련</td>
+        </tr>
+        <tr>
+          <td><strong>보호자</strong></td>
+          <td>아이의 변화와 학습 효과를 어떤 기준으로 신뢰하는지, 가정에서 어떤 어려움을 겪는지</td>
+          <td>구매자이자 신뢰 판단자인 양육자 관점 이해</td>
+        </tr>
+        <tr>
+          <td><strong>지도 교사</strong></td>
+          <td>본사 자료가 현장에서 어떻게 활용·보완되는지, 실제 수업 운영에서 무엇이 필요한지</td>
+          <td>현장 운영자와 전문가의 관찰을 제품 개선 신호로 읽는 경험</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Translation</span><span class="block-title">매체 제작은 사용자별 메시지 구조 설계였습니다</span></div>
+    <div class="card-grid">
+      <div class="small-card">
+        <h4>어린이 잡지</h4>
+        <p>아이의 언어 수준, 흥미, 집중 방식을 고려해 푸르넷 공부방 회원들만의 트렌드가 될 수 있는 콘텐츠를 제작하고 VoC를 수집/반영했습니다.</p>
+      </div>
+      <div class="small-card">
+        <h4>사외보</h4>
+        <p>보호자가 신뢰할 수 있도록 아이의 학습 경험과 변화, 교육 서비스의 가치를 사례 중심으로 정리했습니다.</p>
+      </div>
+      <div class="small-card">
+        <h4>신문 · 현장 사례</h4>
+        <p>지도 교사의 관찰과 자료 활용 방식을 정기 발행 콘텐츠로 구조화했습니다. 반복적인 리서치-발행 루프를 운영했습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="label">Learning</div>
+    <p>
+      아동 대상 서비스에서는 아이의 말만으로도, 보호자의 말만으로도 충분하지 않았습니다.
+      아이의 직접 발화, 보호자의 기대와 불안, 교육자의 관찰을 함께 보아야 실제 사용 맥락이 선명해졌습니다.
+    </p>
+  </div>
+
+  <div class="match">
+    <div class="match-title">두부핑퐁에 적용되는 지점</div>
+    <p>
+      두부핑퐁도 실제 사용자는 아이지만, 보호자의 신뢰와 치료사/전문가의 관찰이 함께 작동해야 하는 제품이라고 이해합니다.
+      이 경험은 두부 JD의 <strong>양육자·아동 인터뷰, 고객 문제 정의, 콘텐츠 로직 기획</strong>에 가장 직접적으로 연결됩니다.
+    </p>
+  </div>
+</section>
+
+<section class="case" id="case02">
+  <div class="case-head">
+    <span class="case-num">CASE 02</span>
+    <h2 class="case-title">LLM 기반 AI 대화 제품의 초기 기획과 운영</h2>
+  </div>
+  <p class="case-tagline">
+    AI 대화 제품은 “답변을 생성하는 기능”만으로는 부족했습니다. 사용자가 어떤 상황에서 질문했고, 답변 이후 무엇을 할 수 있어야 하는지를 함께 설계해야 했습니다.
+  </p>
+  <div class="meta">
+    <div><small>Role</small><b>Product Manager</b></div>
+    <div><small>Period</small><b>2024.10 — 현재</b></div>
+    <div><small>Scope</small><b>AI 어시스턴트 초기 제품</b></div>
+    <div><small>Focus</small><b>대화 경험 · 로그 분석 · 운영</b></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Problem</span><span class="block-title">사용자는 “답”보다 “다음 행동”을 필요로 했습니다</span></div>
+    <p>
+      플랫폼 본부의 수많은 제품들을 이어 주고 업무 단절성을 해결할 AI 어시스턴트로 출발했습니다.
+      초기에는 문서와 매뉴얼을 빠르게 찾아주는 챗봇에 가까웠지만, 기술의 발전과 함께 외부 크리에이터들의
+      실질적인 문제를 해결해 주고, 나아가 서비스에 재진입하게 하고 잔존율을 높여 주는 지능형 어시스턴트가 요구되었습니다.
+    </p>
+    <p class="note">
+      ※ 내부 수치와 세부 지표는 외부 제출 가능 범위에 맞춰 비식별·일반화했습니다. 공개 가능한 범위는 면접에서 별도로 설명드릴 수 있습니다.
+    </p>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Approach</span><span class="block-title">대화 범위, 톤, 지식 구조, 실패 패턴을 함께 보았습니다</span></div>
+    <ul>
+      <li><strong>대화 경험 정의</strong> — “친절한 답변자”보다 “사용자가 다음 행동을 결정할 수 있게 돕는 어시스턴트”에 가깝게 제품 방향을 정리했습니다.</li>
+      <li><strong>페르소나·톤앤매너 정리</strong> — 답변의 말투뿐 아니라, 언제 확인 질문을 하고 언제 후속 행동을 제안할지 기준을 세웠습니다.</li>
+      <li><strong>로그 기반 개선</strong> — 수백 건의 대화 로그와 사용자 피드백을 보며 반복 질문, 불확실 응답, 맥락 손실, 후속 행동 부재를 개선 가설로 분류했습니다.</li>
+      <li><strong>지식 소스 운영</strong> — LLM 응답 품질이 프롬프트만이 아니라 문서 구조, 검색 가능성, 운영 정책과 함께 결정된다는 점을 제품 운영 기준으로 정리했습니다.</li>
+      <li><strong>실험 리듬</strong> — 짧은 단위의 가설-실험-판정 루프를 만들고, 개선 사항을 로드맵과 백로그로 연결했습니다.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Output</span><span class="block-title">AI 대화 품질을 제품 언어로 다루기 시작했습니다</span></div>
+    <p>
+      이 프로젝트에서 가장 중요한 산출물은 특정 기능 하나가 아니라, <strong>AI 대화 품질을 PM이 판단하고 개선할 수 있는 언어</strong>를 만든 것입니다.
+      응답 정확도, 맥락 유지, 사용자 후속 행동, 실패 응답, 지식 소스의 최신성 같은 항목을 분리해서 보고,
+      어떤 문제를 프롬프트로 풀고 어떤 문제를 UX·문서·운영으로 풀어야 하는지 나누었습니다.
+    </p>
+  </div>
+
+  <div class="match">
+    <div class="match-title">두부핑퐁에 적용되는 지점</div>
+    <p>
+      두부핑퐁의 아이-AI 대화에서도 단일 응답 품질보다 <strong>대화가 이어지는 방식, 아이가 다시 말해볼 수 있는 회복 흐름, 보호자가 신뢰할 수 있는 안정성</strong>이 중요하다고 봅니다.
+      이 경험은 두부 JD의 <strong>AI 캐릭터 페르소나·대화 전략, LLM 기반 대화 흐름·프롬프트 전략, 대화 로그 분석</strong>에 연결됩니다.
+    </p>
+  </div>
+</section>
+
+<section class="case" id="case03">
+  <div class="case-head">
+    <span class="case-num">CASE 03</span>
+    <h2 class="case-title">비전문가와 전문가 사이를 잇는 데이터 플랫폼</h2>
+  </div>
+  <p class="case-tagline">
+    같은 데이터를 두고도 비전문가와 전문가는 다른 언어를 사용했습니다. PM의 일은 두 집단의 요구를 기능 목록으로 합치는 것이 아니라, 함께 사용할 수 있는 구조로 번역하는 것이었습니다.
+  </p>
+  <div class="meta">
+    <div><small>Role</small><b>Product Manager</b></div>
+    <div><small>Period</small><b>2021 — 2024</b></div>
+    <div><small>Users</small><b>데이터 비전문가 · DA · DE</b></div>
+    <div><small>Products</small><b>자연어 질의 · BI · 사전 · 큐레이션</b></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Problem</span><span class="block-title">질문하는 사람과 답하는 사람의 언어가 달랐습니다</span></div>
+    <p>
+      비전문가는 KPI와 의사결정에 필요한 답을 원했지만 SQL이나 데이터 구조를 알기 어려웠고,
+      데이터 전문가는 분석 결과물을 만들지만 그것이 조직 안에서 어떻게 발견되고 재사용되는지 파악하기 어려웠습니다.
+    </p>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Approach</span><span class="block-title">한 번에 해결하지 않고 접점을 여러 층으로 나눴습니다</span></div>
+    <ul>
+      <li><strong>자연어 데이터 질의 챗봇</strong> — 데이터 비전문가가 일상 언어로 KPI를 조회할 수 있는 진입점을 설계했습니다.</li>
+      <li><strong>분석 보고서 큐레이션</strong> — 흩어진 분석 결과물을 검색·발견·재사용 가능한 형태로 정리했습니다.</li>
+      <li><strong>데이터 용어사전</strong> — 서로 다른 집단이 같은 단어를 다르게 쓰는 문제를 줄이기 위한 공통 언어를 만들었습니다.</li>
+      <li><strong>문서화 클리닉</strong> — 데이터 조직이 만든 지식이 다른 직군에게 전달될 수 있도록 문서화 교육과 피드백 루프를 운영했습니다.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><span class="block-tag">Learning</span><span class="block-title">전문성을 낮추지 않고 접근성을 높이는 법을 배웠습니다</span></div>
+    <p>
+      데이터 플랫폼에서 배운 핵심은 전문가의 기준을 희석하지 않으면서도, 비전문가가 안전하게 접근할 수 있는 계단을 만드는 일이었습니다.
+      이 경험은 두부의 치료사·엔지니어·디자이너·PM이 서로 다른 전문 언어를 사용할 때도 유효하다고 생각합니다.
+    </p>
+  </div>
+
+  <div class="match">
+    <div class="match-title">두부핑퐁에 적용되는 지점</div>
+    <p>
+      두부핑퐁은 아이, 양육자, 치료사, 디자이너, 엔지니어가 같은 제품을 서로 다른 언어로 바라보는 제품입니다.
+      이 경험은 두부 JD의 <strong>다양한 이해관계자와의 협업 리딩</strong>에 연결됩니다.
+      저는 도메인 전문가의 판단을 존중하면서도, 그것을 제품 요구사항과 실험 단위로 번역하는 PM 역할을 해왔습니다.
+    </p>
+  </div>
+</section>
+
+
+<section class="appendix ethics">
+  <div class="appendix-kicker">Appendix · Responsible AI / Governance</div>
+  <h3>AI 윤리를 제품 운영의 언어로 다룬 경험</h3>
+  <p class="appendix-lead">
+    이 카드는 핵심 직무 케이스는 아니지만, 두부핑퐁처럼 <strong>아동이 직접 대화하는 AI 제품</strong>에서 꼭 필요한 안전·책임·검수 감각을 보여주는 보조 증거입니다.
+    AI 윤리를 추상적인 선언이 아니라, 토론·인터뷰·문서화·발간 과정을 통해 <strong>제품과 조직이 함께 다룰 수 있는 운영 언어</strong>로 바꾸는 경험을 했습니다.
+  </p>
+
+  <div class="esg-stats">
+    <div class="esg-stat">
+      <div class="esg-stat-num">매월</div>
+      <div class="esg-stat-label">AI 윤리 위원회 참여<br>의견 개진</div>
+    </div>
+    <div class="esg-stat">
+      <div class="esg-stat-num">인터뷰</div>
+      <div class="esg-stat-label">다른 위원들의 관점<br>수집·정리</div>
+    </div>
+    <div class="esg-stat">
+      <div class="esg-stat-num">녹서</div>
+      <div class="esg-stat-label">AI 윤리 논의<br>발간 작업 참여</div>
+    </div>
+  </div>
+
+  <div class="esg-grid">
+    <div class="esg-cell">
+      <h4>위원회 참여와 의견 개진</h4>
+      <p>
+        매월 AI 윤리 위원회에 참여해 제품·사용자·조직 관점에서 의견을 개진했습니다.
+        AI 윤리를 법무·보안의 사후 검토가 아니라, 제품 기획 초기부터 함께 고려해야 하는 기준으로 보았습니다.
+      </p>
+    </div>
+    <div class="esg-cell">
+      <h4>위원 인터뷰를 통한 관점 수집</h4>
+      <p>
+        다른 위원들의 인터뷰를 진행하며, 각자가 AI 윤리 이슈를 어떤 기준과 언어로 바라보는지 정리했습니다.
+        다양한 관점을 듣고 공통 쟁점으로 구조화하는 과정은 다중 이해관계자 제품을 다루는 PM의 일과 닮아 있었습니다.
+      </p>
+    </div>
+    <div class="esg-cell">
+      <h4>녹서(綠書) 발간 참여</h4>
+      <p>
+        위원회 논의와 인터뷰 내용을 공유 가능한 문서로 정리하는 녹서 발간 작업에 참여했습니다.
+        원칙을 선언으로 끝내지 않고, 조직 안에서 반복해서 읽히고 토론될 수 있는 언어로 만드는 경험이었습니다.
+      </p>
+    </div>
+    <div class="esg-cell">
+      <h4>제품 PM으로 얻은 기준</h4>
+      <p>
+        AI 제품의 윤리는 “출시 후 문제가 생기면 고치는 것”이 아니라, 사용자 보호·데이터 활용·설명 가능성·검수 체계·운영 기록이 제품 요구사항 안에 들어오는 일이라고 이해하게 되었습니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="esg-bridge">
+    <div class="label">두부와 닿는 지점</div>
+    <p>
+      두부핑퐁은 아동의 언어·사회성 발달을 돕는 AI 대화 제품이기 때문에, PMF 검증 역시 사용률이나 전환율만으로 판단하기 어렵다고 봅니다.
+      <strong>아이에게 안전한 대화인지, 보호자가 신뢰할 수 있는지, 전문가 검수와 운영 개입 기준이 명확한지, 대화 로그를 어떤 기준으로 활용하고 보호할지</strong>가 함께 설계되어야 합니다.
+      AI 윤리 위원회와 녹서 발간 경험은 제가 이런 문제를 감상이나 선언이 아니라, 제품 기준·문서·의사결정 구조로 다룰 수 있다는 근거입니다.
+    </p>
+  </div>
+</section>
+
+<section class="appendix">
+  <div class="appendix-kicker">Appendix · ESG / CSR Leadership</div>
+  <h3>자발적 참여를 사회적 가치로 연결한 경험</h3>
+  <p class="appendix-lead">
+    이 카드는 포트폴리오의 핵심 직무 케이스는 아니지만, 제가 <strong>ESG/CSR을 일회성 캠페인이 아니라 구성원이 자발적으로 참여하는 문화</strong>로 만들고자 해 온 방식을 보여주는 보조 증거입니다.
+    기능과 지표뿐 아니라, 제품과 조직이 어떤 사회적 가치에 연결되는지를 중요하게 여기는 태도를 담았습니다.
+  </p>
+
+  <div class="esg-stats">
+    <div class="esg-stat">
+      <div class="esg-stat-num">60<small>여 명</small></div>
+      <div class="esg-stat-label">사내 뜨개 동호회<br>현재 규모</div>
+    </div>
+    <div class="esg-stat">
+      <div class="esg-stat-num">3<small>년+</small></div>
+      <div class="esg-stat-label">동호회장 재임<br>운영 지속 기간</div>
+    </div>
+    <div class="esg-stat">
+      <div class="esg-stat-num">200<small>~250명</small></div>
+      <div class="esg-stat-label">매년 자선경매<br>자발 참여 규모</div>
+    </div>
+    <div class="esg-stat">
+      <div class="esg-stat-num">매년</div>
+      <div class="esg-stat-label">참여율 상승<br>대표 전통으로 안착</div>
+    </div>
+  </div>
+
+  <div class="esg-grid">
+    <div class="esg-cell">
+      <h4>0→1 커뮤니티 설계</h4>
+      <p>
+        KRAFTON에서 직군 간 사일로를 낮추기 위해 사내 뜨개 동호회를 0에서 만들고, 공식 동호회로 안착시켰습니다.
+        60여 명 규모의 커뮤니티를 3년 이상 운영하며, 개발·기획·아트·QA 등 서로 다른 직군이 자연스럽게 만나는 접점을 만들었습니다.
+      </p>
+    </div>
+    <div class="esg-cell">
+      <h4>연간 자선경매 기획과 CSR 협업</h4>
+      <p>
+        매년 동호회원의 작품을 모아 자선경매를 기획·운영했고, CSR 담당 조직과의 협업을 이끌어냈습니다.
+        참여를 강제하지 않았음에도 매년 200~250명이 자발적으로 참여하는 행사로 성장했습니다.
+      </p>
+    </div>
+    <div class="esg-cell">
+      <h4>홍보·작품 소개 콘텐츠 제작</h4>
+      <p>
+        단순 공지가 아니라, 작품의 제작 과정과 기부 의미가 잘 전달되도록 홍보 콘텐츠와 작품 소개 콘텐츠를 직접 만들었습니다.
+        사람들이 “왜 참여해야 하는지”를 이해할 수 있도록 스토리와 맥락을 설계했습니다.
+      </p>
+    </div>
+    <div class="esg-cell">
+      <h4>일회성 이벤트에서 조직 문화로</h4>
+      <p>
+        자선경매를 동호회의 대표 행사이자 매년 기다리는 전통으로 정착시켰습니다.
+        참여율이 매년 높아지는 흐름은, 좋은 취지를 낮은 진입 장벽과 명확한 커뮤니케이션으로 설계했을 때 조직 안에서 지속될 수 있음을 보여줍니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="esg-bridge">
+    <div class="label">두부와 닿는 지점</div>
+    <p>
+      두부핑퐁은 아이의 언어·사회성 발달이라는 사회적 가치와 직접 연결된 제품입니다.
+      그래서 저는 PMF 검증도 단순한 사용률·전환율만이 아니라, <strong>아이에게 안전한 경험인지, 보호자가 신뢰할 수 있는지, 팀이 장기적으로 책임질 수 있는 방식인지</strong>를 함께 봐야 한다고 생각합니다.
+      사내 자선경매를 기획하고 CSR 협업을 이끌며 배운 것은, 사회적 가치는 선언만으로 움직이지 않고 <strong>참여 구조·콘텐츠·신뢰·반복 가능한 운영</strong>이 함께 설계될 때 문화가 된다는 점입니다.
+    </p>
+  </div>
+</section>
+
+<section class="plan">
+  <div class="eyebrow" style="text-align:center;color:#E8956A;margin-bottom:10px;">Initial Contribution Plan</div>
+  <h2>합류 초기에는 “배우기”와 “작게 검증하기”를 함께 하겠습니다</h2>
+  <p class="plan-intro">
+    발달·언어치료 도메인은 먼저 배워야 할 영역입니다. 동시에 PMF 검증 단계에서는 관찰만으로 시간을 보내지 않고,
+    작은 단위의 품질 개선 가설을 빠르게 검증해야 합니다.
+  </p>
+  <div class="plan-grid">
+    <div class="phase">
+      <small>Phase 01</small>
+      <h3>도메인과 현장 이해</h3>
+      <ul>
+        <li>치료사·PM·디자이너·엔지니어가 각각 수업 품질과 AI 안전 기준을 어떻게 정의하는지 듣기</li>
+        <li>가능한 범위에서 수업 세션과 운영 이슈 관찰</li>
+        <li>기존 양육자·아동 인터뷰와 VOC를 읽고 고객 문제와 보호자 신뢰 이슈를 재분류</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <small>Phase 02</small>
+      <h3>대화 로그 진단</h3>
+      <ul>
+        <li>대화 중단, 침묵, 맥락 손실, 부적절 난이도, 민감 발화, 운영 개입 패턴 분류</li>
+        <li>문제가 프롬프트, 콘텐츠, UX, 운영 중 어디에 가까운지 구분</li>
+        <li>수업 완료율·재방문·보호자 피드백과 연결되는 품질 신호 탐색</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <small>Phase 03</small>
+      <h3>작은 실험 제안</h3>
+      <ul>
+        <li>아이의 재시도와 대화 회복을 돕는 작은 대화 플로우 개선안 제안</li>
+        <li>가설-실험-판정 기준을 팀과 합의</li>
+        <li>다음 분기에 검증할 핵심 제품 가설 후보 정리</li>
+      </ul>
+    </div>
+  </div>
+  <div class="questions">
+    <div class="label">Questions I want to validate</div>
+    <p>
+      두부핑퐁에서 아이가 “다시 말해 보고 싶다”고 느끼는 순간은 어디인지, 보호자가 “다시 맡겨도 되겠다”고 판단하는 근거는 무엇인지,
+      치료사와 제품팀이 함께 수업 품질을 판단할 수 있는 최소 지표는 무엇인지 검증하고 싶습니다.
+    </p>
+  </div>
+</section>
+
+<section class="closing">
+  <h2>세 케이스의 공통점은 “다른 언어를 하나의 제품 경험으로 번역한 일”입니다</h2>
+  <p>
+    푸르넷에서는 아이·보호자·교육자의 언어를, AI 어시스턴트에서는 사용자 질문과 LLM 응답의 간극을,
+    사내 데이터 플랫폼에서는 데이터 비전문가와 전문가의 언어 차이를 다뤘습니다.
+    두부핑퐁에서는 이 경험을 바탕으로 <strong>아이의 대화 경험, 보호자의 신뢰, 전문가의 기준</strong>을 함께 연결하는 PM으로 기여하고 싶습니다.
+  </p>
+</section>
+
+<footer class="footer">
+  KIM EURI · Portfolio for Dubu Product Manager · 2026
+</footer>
+
+</div>
+</body>
+</html>
